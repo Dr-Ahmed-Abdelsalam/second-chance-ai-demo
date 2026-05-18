@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Second Chance AI — Landing Page</title>
+
+  <meta
+    name="description"
+    content="Second Chance AI is an offline, multilingual, privacy-first life recovery planner powered by Gemma 4."
+  />
+
+  <style>
+    :root {
+      --bg: #06131f;
+      --bg2: #071827;
+      --card: #0e2a3a;
+      --card2: #102f3f;
+      --line: #1f7a66;
+      --line2: #24495a;
+      --green: #7cffb2;
+      --green2: #14c884;
+      --text: #f5f7fa;
+      --muted: #bfd8d2;
+      --soft: #d8e6e2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(20, 200, 132, 0.13), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(124, 255, 178, 0.08), transparent 26%),
+        linear-gradient(180deg, #06131f 0%, #071827 50%, #06131f 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(6, 19, 31, 0.84);
+      border-bottom: 1px solid rgba(31, 122, 102, 0.55);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 68px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--green), var(--green2));
+      display: grid;
+      place-items: center;
+      color: var(--bg);
+      font-weight: 900;
+      box-shadow: 0 0 28px rgba(124, 255, 178, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--soft);
+      font-size: 14px;
+      padding: 9px 10px;
+      border-radius: 10px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(124, 255, 178, 0.09);
+      color: var(--green);
+    }
+
+    .hero {
+      padding: 84px 0 44px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(31, 122, 102, 0.9);
+      border-radius: 999px;
+      background: rgba(14, 42, 58, 0.85);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -2.2px;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      color: var(--soft);
+      font-size: 20px;
+      max-width: 720px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      transition: 0.18s ease;
+    }
+
+    .btn-primary {
+      background: var(--green2);
+      color: var(--bg);
+      border-color: var(--green2);
+    }
+
+    .btn-primary:hover {
+      background: var(--green);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(14, 42, 58, 0.76);
+      color: var(--green);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(31, 122, 102, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(14, 42, 58, 0.95), rgba(6, 19, 31, 0.95));
+      border: 1px solid rgba(31, 122, 102, 0.9);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.36);
+      overflow: hidden;
+    }
+
+    .screen-top {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--line2);
+    }
+
+    .dot:nth-child(1) {
+      background: #ff7a7a;
+    }
+
+    .dot:nth-child(2) {
+      background: #ffd166;
+    }
+
+    .dot:nth-child(3) {
+      background: var(--green);
+    }
+
+    .mini-title {
+      color: var(--green);
+      font-weight: 900;
+      font-size: 20px;
+      margin: 8px 0;
+    }
+
+    .mini-sub {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .score {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      align-items: center;
+      margin: 18px 0;
+    }
+
+    .circle {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--green) 0 71%, #123d48 71% 100%);
+      box-shadow: 0 0 38px rgba(124, 255, 178, 0.12);
+    }
+
+    .circle-inner {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(18, 61, 72, 0.9);
+      border: 1px solid var(--line2);
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    .plan-card {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(18, 61, 72, 0.72);
+      border: 1px solid rgba(36, 73, 90, 0.95);
+    }
+
+    .plan-card strong {
+      color: var(--green);
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.1;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(14, 42, 58, 0.82);
+      border: 1px solid rgba(31, 122, 102, 0.72);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 14px 38px rgba(0,0,0,0.22);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: var(--green);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--soft);
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(6, 19, 31, 0.58);
+      border: 1px solid var(--line2);
+      min-height: 150px;
+    }
+
+    .num {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--green2);
+      color: var(--bg);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .step strong {
+      color: var(--green);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 174px;
+      border-radius: 16px;
+      border: 1px solid var(--line2);
+      background: #06131f;
+      color: var(--text);
+      padding: 15px;
+      font-size: 15px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    input[type="file"] {
+      margin: 12px 0 16px;
+      color: var(--soft);
+    }
+
+    .preview {
+      max-width: 100%;
+      display: none;
+      border-radius: 16px;
+      border: 1px solid var(--line2);
+      margin: 12px 0 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 14px;
+      border: 0;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 900;
+      background: var(--green2);
+      color: var(--bg);
+      margin-top: 12px;
+    }
+
+    button:hover {
+      background: var(--green);
+    }
+
+    .output {
+      white-space: pre-wrap;
+      background: #06131f;
+      border: 1px solid var(--line2);
+      border-radius: 18px;
+      padding: 18px;
+      min-height: 440px;
+      font-size: 15px;
+      line-height: 1.56;
+      color: var(--text);
+    }
+
+    iframe {
+      width: 100%;
+      height: 430px;
+      border: 0;
+      border-radius: 22px;
+      background: #000;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .link-card {
+      text-decoration: none;
+      border-radius: 20px;
+      padding: 20px;
+      background: rgba(18, 61, 72, 0.7);
+      border: 1px solid rgba(31, 122, 102, 0.72);
+      transition: 0.18s ease;
+      min-height: 130px;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      background: rgba(31, 122, 102, 0.42);
+    }
+
+    .link-card strong {
+      display: block;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .link-card span {
+      color: var(--soft);
+      font-size: 14px;
+    }
+
+    .notice {
+      border-left: 4px solid var(--green);
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(18, 61, 72, 0.58);
+      color: var(--soft);
+      margin-top: 16px;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding: 34px 0;
+      border-top: 1px solid rgba(31, 122, 102, 0.58);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .link-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      iframe {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .cards,
+      .workflow,
+      .link-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      .score {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="logo">SC</div>
+        <div>Second Chance AI</div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#video">Video</a>
+        <a href="#links">Links</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+
+        <div>
+          <div class="eyebrow">Powered by Gemma 4 · Offline · Privacy-first</div>
+
+          <h1>A plan when life feels <span>broken.</span></h1>
+
+          <p class="lead">
+            Second Chance AI is a multilingual life-restart planner that helps people rebuild
+            after job loss, debt, burnout, divorce, displacement, business failure,
+            or reintegration after crisis.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#demo">Try the Live Demo</a>
+            <a
+              class="btn btn-secondary"
+              href="https://www.kaggle.com/code/drahmedmabdelsalam33/second-chance-ai-a-gemma-4-orchestrated-recovery"
+              target="_blank"
+            >
+              Open Kaggle Notebook
+            </a>
+            <a
+              class="btn btn-secondary"
+              href="https://youtu.be/MpZMCsMGmC8"
+              target="_blank"
+            >
+              Watch Video
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="screen-top">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="mini-title">Crisis Intake Result</div>
+          <p class="mini-sub">Job Loss + Financial Debt + Emotional Burnout</p>
+
+          <div class="score">
+            <div class="circle">
+              <div class="circle-inner">71</div>
+            </div>
+
+            <div>
+              <strong style="color: var(--green);">Life Restart Score</strong>
+              <p style="margin:8px 0 0;color:var(--soft);">
+                A starting point for structured recovery, not a judgment.
+              </p>
+            </div>
+          </div>
+
+          <div class="pill-list">
+            <span class="pill">24-Hour Stabilization</span>
+            <span class="pill">7-Day Recovery</span>
+            <span class="pill">Daily Coach</span>
+            <span class="pill">Progress Tracker</span>
+          </div>
+
+          <div class="plan-card">
+            <strong>Next step:</strong>
+            organize urgent bills, protect basic needs, contact one trusted person,
+            and start a 7-day recovery path.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Built for crisis moments</h2>
+          <p>
+            Second Chance AI turns fear and confusion into a structured, practical path forward.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Crisis Classification</h3>
+            <p>Identifies the crisis pattern, urgency level, and practical support needs.</p>
+          </div>
+
+          <div class="card">
+            <h3>Life Restart Score</h3>
+            <p>Creates a clear starting point to guide recovery planning and progress.</p>
+          </div>
+
+          <div class="card">
+            <h3>Recovery Plans</h3>
+            <p>Generates first 24-hour stabilization, 7-day recovery, and 30-day rebuild direction.</p>
+          </div>
+
+          <div class="card">
+            <h3>Daily Coach</h3>
+            <p>Helps users focus on one manageable action each day without overwhelm.</p>
+          </div>
+
+          <div class="card">
+            <h3>Progress Tracker</h3>
+            <p>Shows progress as small, measurable steps rather than a single miracle.</p>
+          </div>
+
+          <div class="card">
+            <h3>Privacy-first</h3>
+            <p>Designed around offline use, no external API, and sensitive-crisis data protection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>
+            A simple workflow: describe the situation, classify the crisis,
+            generate a plan, and track daily progress.
+          </p>
+        </div>
+
+        <div class="workflow">
+          <div class="step">
+            <div class="num">1</div>
+            <strong>Share the crisis</strong>
+            <span>User writes in natural language or uploads a related document image.</span>
+          </div>
+
+          <div class="step">
+            <div class="num">2</div>
+            <strong>Analyze needs</strong>
+            <span>The system detects crisis type, urgency, and risk flags.</span>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <strong>Score recovery</strong>
+            <span>Life Restart Score gives a structured starting point.</span>
+          </div>
+
+          <div class="step">
+            <div class="num">4</div>
+            <strong>Create a plan</strong>
+            <span>24-hour, 7-day, and 30-day recovery guidance.</span>
+          </div>
+
+          <div class="step">
+            <div class="num">5</div>
+            <strong>Track progress</strong>
+            <span>Daily Coach and Progress Tracker support momentum.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Live Crisis Intake Demo</h2>
+          <p>
+            Try the browser demo. It simulates the core workflow for reviewers.
+            The full Gemma 4 implementation is available in the Kaggle Notebook.
+          </p>
+        </div>
+
+        <div class="demo-grid">
+          <div class="card">
+            <h3>User Input</h3>
+
+            <label><strong>Optional crisis document image</strong></label><br />
+            <input type="file" id="imageInput" accept="image/*" />
+            <img id="preview" class="preview" alt="Uploaded crisis document preview" />
+
+            <label><strong>Describe your situation</strong></label>
+            <textarea id="userText">I lost my job last month, and this overdue bill is making me panic. I have debt and bills to pay. I feel lost, stressed, and I do not know what to do first. Please analyze my situation and give me a 7-day recovery plan.</textarea>
+
+            <button onclick="runDemo()">Analyze My Situation</button>
+
+            <p class="notice">
+              Try Arabic too. The demo detects Arabic text and returns an Arabic recovery plan.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Second Chance AI Output</h3>
+            <div id="output" class="output">Waiting for user input...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="video">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Demo video</h2>
+          <p>A 120-second overview showing the human story and product workflow.</p>
+        </div>
+
+        <iframe
+          src="https://www.youtube.com/embed/MpZMCsMGmC8"
+          title="Second Chance AI Demo Video"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section id="links">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Project links</h2>
+          <p>Explore the notebook, source code, video, and live demo assets.</p>
+        </div>
+
+        <div class="link-grid">
+          <a
+            class="link-card"
+            href="https://www.kaggle.com/code/drahmedmabdelsalam33/second-chance-ai-a-gemma-4-orchestrated-recovery"
+            target="_blank"
+          >
+            <strong>Kaggle Notebook</strong>
+            <span>Full implementation and demo outputs.</span>
+          </a>
+
+          <a
+            class="link-card"
+            href="https://youtu.be/MpZMCsMGmC8"
+            target="_blank"
+          >
+            <strong>Demo Video</strong>
+            <span>Human-centered project overview.</span>
+          </a>
+
+          <a
+            class="link-card"
+            href="https://github.com/Dr-Ahmed-Abdelsalam/second-chance-ai-demo"
+            target="_blank"
+          >
+            <strong>GitHub Repository</strong>
+            <span>Landing page and demo code.</span>
+          </a>
+
+          <a class="link-card" href="#demo">
+            <strong>Interactive Demo</strong>
+            <span>Browser-based crisis intake simulation.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Second Chance AI — Offline Life Restart Planner Powered by Gemma 4
+      <br />
+      Built for the Gemma 4 Good Hackathon
+    </div>
+  </footer>
+
+  <script>
+    const imageInput = document.getElementById("imageInput");
+    const preview = document.getElementById("preview");
+
+    imageInput.addEventListener("change", function() {
+      const file = imageInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function detectLanguage(text) {
+      const arabicRegex = /[\u0600-\u06FF]/;
+      return arabicRegex.test(text) ? "ar" : "en";
+    }
+
+    function runDemo() {
+      const text = document.getElementById("userText").value.trim();
+      const output = document.getElementById("output");
+      const lang = detectLanguage(text);
+
+      if (!text) {
+        output.textContent = "Please describe your situation first.";
+        return;
+      }
+
+      output.textContent = "Analyzing crisis intake...\nGenerating recovery plan...\n";
+
+      setTimeout(() => {
+        if (lang === "ar") {
+          output.textContent =
+`تصنيف الأزمة:
+فقدان وظيفة + ضغط مالي + إرهاق عاطفي
+
+مستوى الاستعجال:
+مرتفع
+
+مؤشرات الخطر:
+- ضغط مالي فوري
+- تراكم التزامات
+- توتر عاطفي
+- غياب خطة واضحة
+
+Life Restart Score:
+71 / 100
+
+خطة أول 24 ساعة:
+1. تجنب اتخاذ قرارات مالية تحت الضغط.
+2. اجمع كل الفواتير والالتزامات في قائمة واحدة.
+3. حدد أقرب موعد دفع وأقل مبلغ مطلوب.
+4. تواصل مع شخص موثوق للحصول على دعم.
+5. ضع ميزانية طوارئ لسبعة أيام فقط.
+6. حافظ على الطعام والنوم والسلامة الأساسية.
+
+خطة التعافي لمدة 7 أيام:
+اليوم 1: تنظيم الفواتير والمستندات.
+اليوم 2: التواصل مع الدائنين وطلب مهلة أو تقسيط.
+اليوم 3: تحديث السيرة الذاتية.
+اليوم 4: التقديم على فرص عمل واقعية.
+اليوم 5: البحث عن دخل مؤقت أو عمل سريع.
+اليوم 6: التواصل مع شبكة العلاقات المهنية.
+اليوم 7: مراجعة التقدم وتعديل الخطة.
+
+اتجاه إعادة البناء خلال 30 يومًا:
+- تحسين مهارة واحدة قابلة للتوظيف.
+- إنشاء روتين أسبوعي للتقديم على وظائف.
+- تتبع المصروفات وتقليل الإنفاق غير الضروري.
+- بناء الثقة من خلال إنجازات يومية صغيرة.
+
+Daily Coach:
+ما هو الإجراء الصغير الوحيد الذي يمكنك إنجازه اليوم لتقليل الضغط غدًا؟
+
+Privacy Mode:
+Offline | No external API | No cloud dependency`;
+        } else {
+          output.textContent =
+`Crisis Classification:
+Job Loss + Financial Debt + Emotional Burnout
+
+Urgency Level:
+High
+
+Risk Flags:
+- Immediate financial pressure
+- Debt and overdue obligations
+- Emotional stress
+- Loss of direction
+
+Life Restart Score:
+71 / 100
+
+First 24 Hours Stabilization Plan:
+1. Avoid panic-based financial decisions.
+2. List all urgent bills and deadlines.
+3. Identify the minimum amount required to reduce immediate pressure.
+4. Contact one trusted person for support.
+5. Build a simple 7-day emergency budget.
+6. Protect basic needs: food, sleep, medication, and safety.
+
+7-Day Recovery Plan:
+Day 1: Organize all documents, bills, and deadlines.
+Day 2: Contact creditors and request extensions or payment plans.
+Day 3: Update your CV and job search profile.
+Day 4: Apply to realistic job opportunities.
+Day 5: Identify one quick income option or temporary work path.
+Day 6: Reconnect with professional contacts and support network.
+Day 7: Review progress, adjust the plan, and choose the next priority.
+
+30-Day Rebuild Direction:
+- Improve one employable skill.
+- Create a weekly job application routine.
+- Track expenses and reduce non-essential spending.
+- Build confidence through small daily wins.
+
+Daily Coach:
+What is one small action you can complete today that will reduce pressure by tomorrow?
+
+Privacy Mode:
+Offline | No external API | No cloud dependency`;
+        }
+      }, 800);
+    }
+  </script>
+
+</body>
+</html>
