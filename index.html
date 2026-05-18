@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Second Chance AI — Live Demo</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #06131f;
+      color: #f5f7fa;
+    }
+
+    header {
+      padding: 50px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #071827, #0e3a42);
+      border-bottom: 1px solid #1f7a66;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 44px;
+      color: #7cffb2;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      color: #d8e6e2;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .card {
+      background: #0e2a3a;
+      border: 1px solid #1f7a66;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #7cffb2;
+    }
+
+    h3 {
+      color: #7cffb2;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 11px;
+      margin: 6px 6px 6px 0;
+      border-radius: 999px;
+      background: #123d48;
+      color: #7cffb2;
+      border: 1px solid #1f7a66;
+      font-size: 13px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 170px;
+      border-radius: 12px;
+      border: 1px solid #24495a;
+      background: #06131f;
+      color: #f5f7fa;
+      padding: 14px;
+      font-size: 15px;
+      box-sizing: border-box;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    input[type="file"] {
+      margin: 12px 0 16px;
+      color: #d8e6e2;
+    }
+
+    button {
+      margin-top: 14px;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #14c884;
+      color: #06131f;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #7cffb2;
+    }
+
+    .preview {
+      margin-top: 12px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      max-width: 100%;
+      display: none;
+      border: 1px solid #24495a;
+    }
+
+    .output {
+      white-space: pre-wrap;
+      background: #06131f;
+      border: 1px solid #24495a;
+      border-radius: 14px;
+      padding: 18px;
+      min-height: 420px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #f5f7fa;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 8px 8px 0 0;
+      padding: 12px 16px;
+      background: #123d48;
+      border: 1px solid #1f7a66;
+      color: #7cffb2;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .note {
+      margin-top: 16px;
+      color: #bfd8d2;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      color: #bfd8d2;
+      padding: 30px;
+      border-top: 1px solid #123d48;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Second Chance AI</h1>
+  <p>Offline Life Restart Planner Powered by Gemma 4</p>
+  <p>A plan when life feels broken.</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Live Crisis Intake Demo</h2>
+
+    <p>
+      This interactive browser demo shows the core workflow of Second Chance AI:
+      a person describes a crisis, optionally uploads a related image, and receives
+      a structured recovery response.
+    </p>
+
+    <span class="badge">Offline-first</span>
+    <span class="badge">Privacy-first</span>
+    <span class="badge">Multilingual concept</span>
+    <span class="badge">No external API</span>
+    <span class="badge">Powered by Gemma 4</span>
+
+    <p class="note">
+      Note: This GitHub Pages demo simulates the product workflow for reviewers.
+      The full Gemma 4 notebook implementation is available in the Kaggle Notebook.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>User Input</h2>
+
+      <label><strong>Optional crisis document image:</strong></label>
+      <br />
+      <input type="file" id="imageInput" accept="image/*" />
+      <img id="preview" class="preview" />
+
+      <label><strong>Describe your situation:</strong></label>
+      <textarea id="userText">I lost my job last month, and this overdue bill is making me panic. I have debt and bills to pay. I feel lost, stressed, and I do not know what to do first. Please analyze my situation and give me a 7-day recovery plan.</textarea>
+
+      <button onclick="runDemo()">Analyze My Situation</button>
+
+      <p class="note">
+        Try Arabic too. The demo detects Arabic text and returns an Arabic recovery plan.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Second Chance AI Output</h2>
+      <div id="output" class="output">Waiting for user input...</div>
+    </div>
+
+  </div>
+
+  <div class="card">
+    <h2>What the Full System Provides</h2>
+
+    <ul>
+      <li>Crisis Classification</li>
+      <li>Life Restart Score</li>
+      <li>First 24 Hours Stabilization Plan</li>
+      <li>7-Day Recovery Plan</li>
+      <li>30-Day Rebuild Direction</li>
+      <li>Daily Coach</li>
+      <li>Progress Tracker</li>
+      <li>Offline and privacy-first recovery planning</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Project Links</h2>
+
+    <div class="buttons">
+      <a href="https://youtu.be/MpZMCsMGmC8" target="_blank">Watch Demo Video</a>
+      <a href="https://github.com/Dr-Ahmed-Abdelsalam/second-chance-ai-demo" target="_blank">View GitHub Repository</a>
+    </div>
+
+    <p class="note">
+      Add the Kaggle Notebook link here later if needed.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  Second Chance AI — Built for the Gemma 4 Good Hackathon
+</footer>
+
+<script>
+  const imageInput = document.getElementById("imageInput");
+  const preview = document.getElementById("preview");
+
+  imageInput.addEventListener("change", function() {
+    const file = imageInput.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = "block";
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+  function detectLanguage(text) {
+    const arabicRegex = /[\u0600-\u06FF]/;
+    return arabicRegex.test(text) ? "ar" : "en";
+  }
+
+  function runDemo() {
+    const text = document.getElementById("userText").value.trim();
+    const output = document.getElementById("output");
+    const lang = detectLanguage(text);
+
+    if (!text) {
+      output.textContent = "Please describe your situation first.";
+      return;
+    }
+
+    output.textContent = "Analyzing crisis intake...\nGenerating recovery plan...\n";
+
+    setTimeout(() => {
+      if (lang === "ar") {
+        output.textContent =
+`تصنيف الأزمة:
+فقدان وظيفة + ضغط مالي + إرهاق عاطفي
+
+مستوى الاستعجال:
+مرتفع
+
+مؤشرات الخطر:
+- ضغط مالي فوري
+- تراكم التزامات
+- توتر عاطفي
+- غياب خطة واضحة
+
+Life Restart Score:
+71 / 100
+
+خطة أول 24 ساعة:
+1. تجنب اتخاذ قرارات مالية تحت الضغط.
+2. اجمع كل الفواتير والالتزامات في قائمة واحدة.
+3. حدد أقرب موعد دفع وأقل مبلغ مطلوب.
+4. تواصل مع شخص موثوق للحصول على دعم.
+5. ضع ميزانية طوارئ لسبعة أيام فقط.
+6. حافظ على الطعام والنوم والسلامة الأساسية.
+
+خطة التعافي لمدة 7 أيام:
+اليوم 1: تنظيم الفواتير والمستندات.
+اليوم 2: التواصل مع الدائنين وطلب مهلة أو تقسيط.
+اليوم 3: تحديث السيرة الذاتية.
+اليوم 4: التقديم على فرص عمل واقعية.
+اليوم 5: البحث عن دخل مؤقت أو عمل سريع.
+اليوم 6: التواصل مع شبكة العلاقات المهنية.
+اليوم 7: مراجعة التقدم وتعديل الخطة.
+
+اتجاه إعادة البناء خلال 30 يومًا:
+- تحسين مهارة واحدة قابلة للتوظيف.
+- إنشاء روتين أسبوعي للتقديم على وظائف.
+- تتبع المصروفات وتقليل الإنفاق غير الضروري.
+- بناء الثقة من خلال إنجازات يومية صغيرة.
+
+Daily Coach:
+ما هو الإجراء الصغير الوحيد الذي يمكنك إنجازه اليوم لتقليل الضغط غدًا؟
+
+Privacy Mode:
+Offline | No external API | No cloud dependency`;
+      } else {
+        output.textContent =
+`Crisis Classification:
+Job Loss + Financial Debt + Emotional Burnout
+
+Urgency Level:
+High
+
+Risk Flags:
+- Immediate financial pressure
+- Debt and overdue obligations
+- Emotional stress
+- Loss of direction
+
+Life Restart Score:
+71 / 100
+
+First 24 Hours Stabilization Plan:
+1. Avoid panic-based financial decisions.
+2. List all urgent bills and deadlines.
+3. Identify the minimum amount required to reduce immediate pressure.
+4. Contact one trusted person for support.
+5. Build a simple 7-day emergency budget.
+6. Protect basic needs: food, sleep, medication, and safety.
+
+7-Day Recovery Plan:
+Day 1: Organize all documents, bills, and deadlines.
+Day 2: Contact creditors and request extensions or payment plans.
+Day 3: Update your CV and job search profile.
+Day 4: Apply to realistic job opportunities.
+Day 5: Identify one quick income option or temporary work path.
+Day 6: Reconnect with professional contacts and support network.
+Day 7: Review progress, adjust the plan, and choose the next priority.
+
+30-Day Rebuild Direction:
+- Improve one employable skill.
+- Create a weekly job application routine.
+- Track expenses and reduce non-essential spending.
+- Build confidence through small daily wins.
+
+Daily Coach:
+What is one small action you can complete today that will reduce pressure by tomorrow?
+
+Privacy Mode:
+Offline | No external API | No cloud dependency`;
+      }
+    }, 900);
+  }
+</script>
+
+</body>
+</html>
