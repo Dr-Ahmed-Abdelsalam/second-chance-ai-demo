@@ -1,6 +1,6 @@
 <div align="center">
 
-![Second Chance AI — From uncertainty to structured action](assets/second-chance-banner.svg)
+![Animated Second Chance AI banner](assets/second-chance-banner.gif)
 
 <br/>
 
@@ -39,13 +39,7 @@ The aim is **decision support, not automated decision-making**. It is an explora
 
 ## 02 / The experience
 
-```mermaid
-flowchart LR
-    A["Describe a challenge"] --> B["Organize context"]
-    B --> C["Identify priorities"]
-    C --> D["Create an action plan"]
-    D --> E["Review and adapt"]
-```
+![Animated planning workflow](assets/second-chance-workflow.gif)
 
 | Planning horizon | Intended outcome |
 |---|---|
