@@ -1,153 +1,159 @@
 <div align="center">
 
-# 🌱 Second Chance AI
+![Second Chance AI — From uncertainty to structured action](assets/second-chance-banner.svg)
 
-### A Fresh Start, One Practical Step at a Time
+<br/>
 
-**A privacy-conscious, human-centered concept for structured life-recovery planning**
+# Second Chance AI
+### A practical planning concept for life's difficult transitions
 
-<br>
+**Gemma 4 research concept · Human-centered design · Privacy-aware approach**
 
-[![Live Demo](https://img.shields.io/badge/EXPLORE-Live%20Demo-14b88a?style=for-the-badge)](https://dr-ahmed-abdelsalam.github.io/second-chance-ai-demo/)
-[![Kaggle Notebook](https://img.shields.io/badge/RESEARCH-Kaggle%20Notebook-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/drahmedmabdelsalam33/second-chance-ai-a-gemma-4-orchestrated-recovery)
-[![Watch Demo](https://img.shields.io/badge/WATCH-Demo%20Video-dc3545?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/MpZMCsMGmC8)
+[![Try the interactive demo](https://img.shields.io/badge/TRY_THE_DEMO-14B88A?style=for-the-badge&logo=googlechrome&logoColor=white)](https://dr-ahmed-abdelsalam.github.io/second-chance-ai-demo/)
+[![Explore the Kaggle notebook](https://img.shields.io/badge/KAGGLE_NOTEBOOK-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/drahmedmabdelsalam33/second-chance-ai-a-gemma-4-orchestrated-recovery)
+[![Watch the demonstration](https://img.shields.io/badge/WATCH_VIDEO-DC3545?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/MpZMCsMGmC8)
 
-<br>
+<br/>
 
-![Project Stage](https://img.shields.io/badge/Stage-Interactive%20Prototype-18354a)
-![Languages](https://img.shields.io/badge/Demo-English%20%2B%20Arabic-18354a)
-![Technology](https://img.shields.io/badge/Research-Gemma%204-18354a)
-![Privacy](https://img.shields.io/badge/Browser%20Demo-No%20AI%20API%20Calls-18785f)
+![Status](https://img.shields.io/badge/STATUS-Interactive%20Demo-173A43?style=flat-square)
+![Languages](https://img.shields.io/badge/LANGUAGES-English%20%7C%20Arabic-173A43?style=flat-square)
+![Browser](https://img.shields.io/badge/FRONTEND-HTML%20%7C%20CSS%20%7C%20JavaScript-173A43?style=flat-square)
 
-**From uncertainty to structured action.**
+**A clear next step can make a complex situation easier to navigate.**
 
 </div>
 
 ---
 
-## ✨ The Idea
+## 01 / The vision
 
-Major life disruptions can make even simple decisions feel complicated. **Second Chance AI** explores whether AI-assisted planning can help people organize challenges, identify priorities, and turn uncertainty into manageable next steps.
+A job transition, overdue obligations, or a disrupted routine rarely arrives as a neatly defined problem. People are often dealing with **several connected decisions at once**.
 
-The concept addresses practical difficulties such as employment transitions, financial strain, competing responsibilities, and disrupted routines. Its emphasis is on **clarity, individual agency, and actionable planning**—not on replacing professional judgment.
+**Second Chance AI** explores a human-centered planning experience: describe a challenge in everyday language, organize the relevant priorities, and develop a sequence of small, practical actions.
 
-> **Design principle:** Useful AI should help people understand their options and retain control over their decisions.
+The aim is **decision support, not automated decision-making**. It is an exploratory project, not an intervention service or a validated assessment tool.
 
-## 🧭 The Planning Journey
+<table>
+<tr><td width="33%" align="center"><b>UNDERSTAND</b><br/><sub>Turn a complex description into an organized view</sub></td><td width="33%" align="center"><b>PRIORITIZE</b><br/><sub>Distinguish immediate needs from later goals</sub></td><td width="33%" align="center"><b>MOVE FORWARD</b><br/><sub>Translate priorities into manageable actions</sub></td></tr>
+</table>
 
-| Step | Intended experience |
-| :--- | :--- |
-| **01 · Describe** | Explain a situation in everyday language |
-| **02 · Organize** | Identify themes, pressures, and relevant context |
-| **03 · Prioritize** | Separate immediate needs from longer-term objectives |
-| **04 · Plan** | Build a first-day checklist and a seven-day action plan |
-| **05 · Rebuild** | Define longer-term goals and practical follow-up |
-| **06 · Reflect** | Review progress and revise priorities |
+## 02 / The experience
 
-The table describes the **product concept**; the public web demo currently illustrates this workflow using sample responses.
-
-## 🖥️ Explore the Interactive Demo
-
-The GitHub Pages version provides a lightweight, responsive browser interface with:
-
-- A free-text situation description field.
-- An optional **local image preview**.
-- Basic Arabic-text detection and English/Arabic example outputs.
-- Structured example sections for priorities, immediate actions, seven-day planning, and longer-term direction.
-- No external AI API calls in the current browser script.
-
-**[→ Open the live demonstration](https://dr-ahmed-abdelsalam.github.io/second-chance-ai-demo/)**
-
-### Demo versus AI implementation
-
-| Capability | GitHub Pages demo | Gemma 4 research notebook |
-| :--- | :--- | :--- |
-| User-facing interface | Present | See linked notebook |
-| Language selection | Basic Arabic-character detection | See linked notebook |
-| Planning output | **Prewritten illustrative examples** | Separate implementation described by project |
-| Model inference | **Not performed** | Refer to notebook for details |
-| Image analysis | Preview only; **no image understanding** | Not verified here |
-| Numerical scoring | Example value; **not validated** | Requires separate evaluation |
-
-**Transparency note:** The browser page is a **workflow simulation**. It does not run Gemma 4, assess a real person's circumstances, or generate individualized plans. The linked Kaggle notebook is a separate resource; its complete behavior and validation are not established by this README.
-
-## 🏗️ How the Demo Works
-
-```text
-       Situation description
-                │
-       Optional image preview
-                │
-     Basic language detection
-                │
-     Sample response selection
-                │
-      Structured example plan
+```mermaid
+flowchart LR
+    A["Describe a challenge"] --> B["Organize context"]
+    B --> C["Identify priorities"]
+    C --> D["Create an action plan"]
+    D --> E["Review and adapt"]
 ```
 
-**Built with:** HTML · CSS · Vanilla JavaScript · GitHub Pages
+| Planning horizon | Intended outcome |
+|---|---|
+| **First 24 hours** | A short, practical list of immediate actions |
+| **Next 7 days** | A manageable sequence of daily priorities |
+| **Next 30 days** | A direction for rebuilding routines and tracking progress |
 
-The proposed research workflow considers contextual intake, interpretable priority assessment, AI-assisted planning, and user review. These should not be confused with functionality delivered by the static site.
+> This is the **proposed product journey**, not a claim that the static website performs AI reasoning.
 
-## 🚀 Run Locally
+## 03 / Live demonstration
 
-No API credentials or model downloads are needed for the browser demonstration.
+The public GitHub Pages site is a **lightweight interactive prototype** for exploring the proposed user interface.
+
+| What you can try | What actually happens |
+|---|---|
+| Describe a situation | Text is used to trigger the demo flow |
+| Enter Arabic or English | Basic Arabic-character detection selects a language-specific example |
+| Add an image | The selected image is **previewed locally** |
+| Request a plan | A **prewritten illustrative response** is displayed |
+
+**Important:** The web demo **does not run Gemma 4**, interpret uploaded images, produce individualized assessments, or calculate validated risk scores. The separate Kaggle notebook is linked as a research implementation resource; it has not been independently evaluated in this repository.
+
+<div align="center">
+
+### [↗ Launch the interactive demonstration](https://dr-ahmed-abdelsalam.github.io/second-chance-ai-demo/)
+
+</div>
+
+## 04 / Technical overview
+
+**Current browser demo**
+
+```text
+index.html
+   ├── Responsive interface (HTML + CSS)
+   ├── Text entry and optional image preview
+   ├── Basic Arabic / English detection
+   └── Static demonstration outputs (JavaScript)
+```
+
+**Research concept**
+
+```text
+Context intake → Structured analysis → Prioritization
+             → AI-assisted planning → Human review
+```
+
+The research concept and the functioning browser demo are deliberately presented separately so that visitors can distinguish **implemented features from future or external components**.
+
+### Run locally
 
 ```bash
 git clone https://github.com/Dr-Ahmed-Abdelsalam/second-chance-ai-demo.git
 cd second-chance-ai-demo
 ```
 
-Open **`index.html`** in a modern web browser.
+Open `index.html` in a modern browser. **No API key or model installation is needed for this static demo.**
 
-Enter text in English or Arabic, optionally select an image to preview, and choose **Analyze My Situation**. The response demonstrates the structure of an action plan rather than providing a live AI assessment.
+## 05 / Design commitments
 
-## 🔐 Privacy by Design—With Clear Boundaries
+| Principle | Why it matters |
+|---|---|
+| **Human agency** | Users remain responsible for their choices |
+| **Explainability** | Priorities and suggested actions should be understandable |
+| **Privacy awareness** | Sensitive information requires careful handling |
+| **Accessibility** | Interfaces should work across languages and devices |
+| **Evidence before claims** | Numerical scores and planning quality require validation |
 
-The existing browser script processes entered text locally for language selection and does not send it to an external AI API. Selected images are previewed locally using the browser's file-reading functionality.
+The current browser code makes **no external AI API requests** and previews selected images locally. However, the fact that a browser demo works without an AI API does **not** establish complete privacy for all hosting environments or future versions. Please do not enter confidential or sensitive personal data in experimental demonstrations.
 
-This does **not** establish that every deployment of the broader concept is fully offline or confidential. Hosting infrastructure and future implementations require their own privacy and security review. Avoid entering sensitive personal information in experimental demonstrations.
+## 06 / Research roadmap
 
-## 🧪 Research Directions
+- [ ] Evaluate whether generated plans are **useful, safe, and actionable**.
+- [ ] Investigate **local inference** and practical hardware requirements.
+- [ ] Improve **Arabic-language understanding** beyond character detection.
+- [ ] Develop **transparent, evaluated prioritization criteria**.
+- [ ] Explore **user-controlled progress tracking**.
+- [ ] Document limitations, reproducibility, and appropriate safeguards.
 
-- Explore **local and privacy-conscious AI inference**.
-- Assess the usefulness and reliability of structured planning outputs.
-- Improve multilingual support, particularly for Arabic.
-- Develop transparent prioritization and evaluation criteria.
-- Study accessible, user-controlled progress review.
-- Test safeguards and human oversight for high-stakes contexts.
+*These are proposed research directions, not completed or guaranteed features.*
 
-These are **planned research directions**, not verified product features.
+## 07 / Limitations & responsible use
 
-## ⚖️ Responsible Use
-
-**Second Chance AI is an experimental demonstration, not a professional advisory service.**
-
-Its example urgency labels and numerical scores are not validated measures. The demo must not be relied on for medical, mental-health, legal, financial, or emergency decisions. Real-world use would require domain-specific testing, privacy assessment, appropriate safeguards, and human review.
-
-## 🔗 Project Resources
-
-| Resource | Link |
-| :--- | :--- |
-| **Interactive web demo** | [Launch demo](https://dr-ahmed-abdelsalam.github.io/second-chance-ai-demo/) |
-| **Gemma 4 Kaggle notebook** | [View research implementation](https://www.kaggle.com/code/drahmedmabdelsalam33/second-chance-ai-a-gemma-4-orchestrated-recovery) |
-| **Demonstration video** | [Watch video](https://youtu.be/MpZMCsMGmC8) |
-| **Source repository** | [Browse code](https://github.com/Dr-Ahmed-Abdelsalam/second-chance-ai-demo) |
+Second Chance AI is an **experimental research and interface demonstration**. It does not provide medical, psychological, legal, financial, or emergency services. Its illustrated classifications, urgency labels, and numerical scores are **not validated assessments**. Do not use demonstration outputs to make high-stakes decisions. Real-world deployment would require careful evaluation, domain review, and suitable protective measures.
 
 ---
 
+## Explore the project
+
+| | |
+|---|---|
+| **Interactive demo** | [Open GitHub Pages ↗](https://dr-ahmed-abdelsalam.github.io/second-chance-ai-demo/) |
+| **Gemma 4 research notebook** | [Explore on Kaggle ↗](https://www.kaggle.com/code/drahmedmabdelsalam33/second-chance-ai-a-gemma-4-orchestrated-recovery) |
+| **Video walkthrough** | [Watch on YouTube ↗](https://youtu.be/MpZMCsMGmC8) |
+| **Repository source** | [Browse code ↗](https://github.com/Dr-Ahmed-Abdelsalam/second-chance-ai-demo) |
+
 <div align="center">
 
-### Project Author
+---
 
-**Ahmed M. Abdelsalam, PhD**
+**Created by [Ahmed M. Abdelsalam, PhD](https://github.com/Dr-Ahmed-Abdelsalam)**
 
-PhD in Law · MSc IT Researcher · Legal AI, NLP & Data Science · International Arbitration
+<sub>PhD in Law · MSc IT Researcher · Legal AI, NLP & Data Science · International Arbitration</sub>
 
-[GitHub Profile](https://github.com/Dr-Ahmed-Abdelsalam)
+<br/><br/>
 
-<br>
+**SECOND CHANCE AI**
 
-**Second Chance AI** · *Human-centered technology for more structured choices.*
+<sub>Human-centered thinking. Responsible technology. Practical next steps.</sub>
 
 </div>
