@@ -2,10 +2,13 @@
 <title id="title">Second Chance AI</title><desc id="desc">An abstract pathway from uncertainty to clarity, with green nodes against a midnight-blue background.</desc>
 <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071621"/><stop offset="1" stop-color="#113b3d"/></linearGradient><linearGradient id="accent"><stop stop-color="#40e0ad"/><stop offset="1" stop-color="#9effc9"/></linearGradient><pattern id="grid" width="35" height="35" patternUnits="userSpaceOnUse"><path d="M35 0H0V35" fill="none" stroke="#ffffff" opacity=".055"/></pattern></defs>
 <rect width="1200" height="400" rx="24" fill="url(#bg)"/><rect width="1200" height="400" rx="24" fill="url(#grid)"/>
-<circle cx="1050" cy="40" r="220" fill="#2bd79d" opacity=".045"/><circle cx="920" cy="325" r="180" fill="#2bd79d" opacity=".04"/>
+<circle cx="1050" cy="40" r="220" fill="#2bd79d" opacity=".045"><animate attributeName="opacity" values=".045;.085;.045" dur="7s" repeatCount="indefinite"/></circle><circle cx="920" cy="325" r="180" fill="#2bd79d" opacity=".04"/>
 <g transform="translate(770,83)">
+<!-- Subtle continuous pathway animation; static composition remains visible if motion is blocked. -->
+<path id="journey" d="M0 155C58 155 55 53 120 53S191 160 257 96S309 43 360 43" fill="none" stroke="none"/>
+<circle r="7" fill="#a5ffcb" opacity="0"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#journey"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.88;1" dur="7s" repeatCount="indefinite"/></circle>
 <path d="M0 155C58 155 55 53 120 53S191 160 257 96S309 43 360 43" fill="none" stroke="#66efba" stroke-width="5" stroke-linecap="round" opacity=".78"/>
-<circle cx="0" cy="155" r="12" fill="#122f37" stroke="#71f8c4" stroke-width="4"/><circle cx="120" cy="53" r="12" fill="#122f37" stroke="#71f8c4" stroke-width="4"/><circle cx="257" cy="96" r="12" fill="#122f37" stroke="#71f8c4" stroke-width="4"/><circle cx="360" cy="43" r="17" fill="url(#accent)"/>
+<circle cx="0" cy="155" r="12" fill="#122f37" stroke="#71f8c4" stroke-width="4"/><circle cx="120" cy="53" r="12" fill="#122f37" stroke="#71f8c4" stroke-width="4"/><circle cx="257" cy="96" r="12" fill="#122f37" stroke="#71f8c4" stroke-width="4"/><circle cx="360" cy="43" r="17" fill="url(#accent)"><animate attributeName="r" values="17;20;17" dur="3.5s" repeatCount="indefinite"/></circle>
 <path d="M351 43l7 8 13-16" stroke="#083b32" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 <g fill="#b7d3d0" font-family="Arial,sans-serif" font-size="14"><text x="-12" y="198">START</text><text x="98" y="17">CLARITY</text><text x="232" y="135">PLAN</text><text x="326" y="7">NEXT STEP</text></g>
 </g>
